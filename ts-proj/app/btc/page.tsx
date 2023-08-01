@@ -1,6 +1,7 @@
 import { Metadata } from "next"
 import { APIBase, APIKey } from "../api/api"
 import { CryptoData } from "../modules/ICrypto";
+import Link from "next/link";
 
 export const metadata: Metadata = {
     title: 'BTC'
@@ -24,9 +25,14 @@ export default async function Bitcoin() {
 
     return (
         <div>
-            <p>{btc.symbol}</p>
-            <p>{btc.day}</p>
-            <p>{btc.open}</p>
+            <div>
+                <p>{btc.symbol}</p>
+                <p>{btc.day}</p>
+                <p>{btc.open}</p>
+            </div>
+            <div>
+                <Link href='/'>Home</Link>
+            </div>
         </div>
     )
 }
