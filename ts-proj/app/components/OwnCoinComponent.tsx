@@ -3,9 +3,13 @@
 import { useState } from "react"
 import { getCryptoData } from "../helpers/getCryptoData";
 import { CryptoData } from "../modules/ICrypto";
-import Link from "next/link";
+import { useAppDispatch, useAppSelector } from "../redux/hooks";
+import { addCoin } from "../redux/features/usersCoinsSlice";
 
 export default function OwnCoinComponent() {
+
+    const dispatch = useAppDispatch();
+    const { coins } = useAppSelector(state => state.coin)
 
     const [cryptoName, setCryptoName] = useState<string>('');
     const [fiatPair, setFiatPair] = useState<string>('');
@@ -16,8 +20,14 @@ export default function OwnCoinComponent() {
         if (cryptoName && fiatPair !== '') {
             getCryptoData({ cryptoName, fiatPair })
                 .then((response: CryptoData) => {
-                    setData(response)
+                    setData(response);
                 })
+        }
+    }
+
+    const handleAddCoin = () => {
+        if(data) {
+            dispatch(addCoin(data))
         }
     }
 
@@ -44,7 +54,10 @@ export default function OwnCoinComponent() {
                 <p>{data?.symbol}</p>
                 <p>{data?.day}</p>
                 <p>{data?.close}</p>
-            </div>  
+            </div>
+            <div>
+                <button onClick={handleAddCoin} disabled={!data}>Add to Fav</button>
+            </div>
         </main>
     )
 }
