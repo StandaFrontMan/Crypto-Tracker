@@ -3,22 +3,27 @@ import OwnCoinComponent from './components/OwnCoinComponent'
 
 export default function Home() {
   return (
-    <div>
-      <div>
-        <p>
-          <Link href='/constantCryptos/btc'>BTC</Link>
-        </p>
-        <p>
-          <Link href='/constantCryptos/eth'>ETH</Link>
-        </p>
-        <p>
-          <Link href='/constantCryptos/ltc'>LTC</Link>
-        </p>
+    <div className="container">
+      <div className="navigation">
+        <nav>
+          <ul className="nav-list">
+            <li className="nav-item">
+              <Link href='/constantCryptos/btc'>BTC</Link>
+            </li>
+            <li className="nav-item">
+              <Link href='/constantCryptos/eth'>ETH</Link>
+            </li>
+            <li className="nav-item">
+              <Link href='/constantCryptos/ltc'>LTC</Link>
+            </li>
+          </ul>
+        </nav>
       </div>
-      <div>
-        <OwnCoinComponent />
+      <div className="content">
+        <section>
+          <OwnCoinComponent />
+        </section>
       </div>
-      
     </div>
   )
 }

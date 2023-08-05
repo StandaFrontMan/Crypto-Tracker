@@ -13,13 +13,13 @@ export default async function Ethereum() {
     const eth = await getCryptoData({ cryptoName, fiatPair });
 
     return (
-        <div>
-            <div>
-                <p>{eth.symbol}</p>
-                <p>{eth.day}</p>
-                <p>{eth.close}</p>
-            </div>
-            <div>
+        <div className="ethereum-container">
+                <div className="eth-details">
+                    <p className="eth-symbol">{eth.symbol}</p>
+                    <p className="eth-day">{eth.day}</p>
+                    <p className="eth-close">{eth.close}</p>
+                </div>
+            <div className="home-link">
                 <Link href='/'>Home</Link>
             </div>
         </div>

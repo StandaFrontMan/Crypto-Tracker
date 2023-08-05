@@ -13,15 +13,15 @@ export default async function Bitcoin() {
     const btc = await getCryptoData({ cryptoName, fiatPair });
     
     return (
-        <div>
-            <div>
-                <p>{btc.symbol}</p>
-                <p>{btc.day}</p>
-                <p>{btc.close}</p>
+        <div className="bitcoin-container">
+            <div className="btc-details">
+                <p className="btc-symbol">{btc.symbol}</p>
+                <p className="btc-day">{btc.day}</p>
+                <p className="btc-close">{btc.close}</p>
             </div>
-            <div>
-                <Link href='/'>Home</Link>
-            </div>
+        <div className="home-link">
+            <Link href='/'>Home</Link>
         </div>
+    </div>
     )
 }

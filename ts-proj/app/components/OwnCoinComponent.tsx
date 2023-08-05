@@ -9,7 +9,6 @@ import { addCoin } from "../redux/features/usersCoinsSlice";
 export default function OwnCoinComponent() {
 
     const dispatch = useAppDispatch();
-    const { coins } = useAppSelector(state => state.coin)
 
     const [cryptoName, setCryptoName] = useState<string>('');
     const [fiatPair, setFiatPair] = useState<string>('');
@@ -32,31 +31,33 @@ export default function OwnCoinComponent() {
     }
 
     return (
-        <main>
-            <div>
+        <main className="coin-container">
+            <div className="input-container">
                 <input
                     type="text"
+                    className="crypto-input"
                     placeholder="Enter crypto ..."
                     value={cryptoName}
                     onChange={(e) => setCryptoName(e.target.value.toUpperCase())}
                 />
                 <input
                     type="text"
+                    className="pair-input"
                     placeholder="Enter pair ..."
                     value={fiatPair}
                     onChange={(e) => setFiatPair(e.target.value.toUpperCase())}
                 />
             </div>
-            <div>
-                <button onClick={handleClick}>click</button>
+            <div className="button-container">
+                <button className="fetch-button" onClick={handleClick}>click</button>
             </div>
-            <div>
+            <div className="data-container">
                 <p>{data?.symbol}</p>
                 <p>{data?.day}</p>
                 <p>{data?.close}</p>
             </div>
-            <div>
-                <button onClick={handleAddCoin} disabled={!data}>Add to Fav</button>
+            <div className="add-button-container">
+                <button className="add-button" onClick={handleAddCoin} disabled={!data}>Add to Fav</button>
             </div>
         </main>
     )

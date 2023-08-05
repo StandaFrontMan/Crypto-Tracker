@@ -13,13 +13,13 @@ export default async function LiteCoin() {
     const ltc = await getCryptoData({ cryptoName, fiatPair });
     
     return (
-        <div>
-            <div>
-                <p>{ltc.symbol}</p>
-                <p>{ltc.day}</p>
-                <p>{ltc.close}</p>
-            </div>
-            <div>
+        <div className="litecoin-container">
+                <div className="ltc-details">
+                    <p className="ltc-symbol">{ltc.symbol}</p>
+                    <p className="ltc-day">{ltc.day}</p>
+                    <p className="ltc-close">{ltc.close}</p>
+                </div>
+            <div className="home-link">
                 <Link href='/'>Home</Link>
             </div>
         </div>
